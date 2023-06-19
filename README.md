@@ -1,8 +1,8 @@
 # AssessmentTask
 The assessment consists of an API to be used for opening a new “current account” of already existing  customers.
-#Start the Assessment by creating the tables(Customers,Accounts,Transactions) in the database attached.
+
+Start the Assessment by creating the tables(Customers,Accounts,Transactions) in the database attached.
 For the backend:
------------------
 Step 1 : Install Required NuGet Packages 
 •Dapper
 •System.Data.SqlClient
