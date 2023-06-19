@@ -1,0 +1,44 @@
+<h2>User Information</h2>
+<div *ngIf="userInformation">
+  <p>Name: {{ userInformation.name }}</p>
+  <p>Surname: {{ userInformation.surname }}</p>
+  <h3>Accounts:</h3>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Account ID</th>
+          <th>Balance</th>
+          <th>Transactions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let account of userInformation.accountInformationList">
+          <td>{{ account.accountId }}</td>
+          <td>{{ account.balance }}</td>
+          <td>
+            <ng-container *ngIf="account.transactions.length > 0; else noTransactions">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Transaction ID</th>
+                    <th>Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let transaction of account.transactions">
+                    <td>{{ transaction.transactionId }}</td>
+                    <td>{{ transaction.amount }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </ng-container>
+            <ng-template #noTransactions>
+              No transactions available.
+            </ng-template>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
